@@ -3,40 +3,63 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed = 5f;
+    public float speed = 3f;
     private float jumpForce = 5f;
+    private int moveDirection;
     private float horizontalInput;
 
     [Header("Ladder Climbing")]
     public float climbSpeed = 4f;
     private float verticalInput;
-    private bool isClimbing = false;
+    public bool isClimbing = false;
     private float jumpAfterClimbing = 1.2f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
-    private bool isGrounded;
+    private bool ground = true;
 
     [Header("Components")]
     public Rigidbody2D rb;
+    private SpriteRenderer _spriteRenderer;
     public Animator animator;
+
+    void Awake(){
+        animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+ 
+        if (ground == true){
+            moveDirection = 0;
+            animator.SetFloat("speed", 0.0f);
+        }
 
-        // Ground check
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        Debug.Log("isGrounded:" + isGrounded);
+
+        if (horizontalInput > 0.01f){
+            _spriteRenderer.flipX = false;
+            animator.SetFloat("speed", speed);
+        }
+        else if (horizontalInput < -0.01f){
+            _spriteRenderer.flipX = true;
+            animator.SetFloat("speed", speed);
+        }
 
         // Jump
-        if (Input.GetButtonDown("Jump") && isGrounded && !isClimbing)
+        if (Input.GetButtonDown("Jump") && ground && !isClimbing)
         {
-            Debug.Log("Jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            animator.SetTrigger("jump");
+            animator.SetBool("ground", false);
         }
 
         // Ladder Climbing
@@ -54,7 +77,7 @@ public class PlayerController : MonoBehaviour
         if (animator != null)
         {
             animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-            animator.SetBool("IsGrounded", isGrounded);
+            animator.SetBool("ground", ground);
             animator.SetFloat("ClimbSpeed", isClimbing ? Mathf.Abs(verticalInput) : 0f);
         }
     }
@@ -62,7 +85,15 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Horizontal movement (done in FixedUpdate for physics consistency)
-        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other){
+        if (other.gameObject.CompareTag("Floor")){
+            ground = true;
+            Debug.Log("Floor");
+            animator.SetBool("ground", true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,6 +101,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isClimbing = true;
+            animator.SetBool("isClimbing", true);
         }
     }
 
@@ -78,6 +110,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isClimbing = false;
+            animator.SetBool("isClimbing", false);
             rb.gravityScale = 1f;
 
             // Optional: nudge player a bit away from ladder so they can move
