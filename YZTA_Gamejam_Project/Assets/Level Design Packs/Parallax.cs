@@ -1,19 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
     Material mat;
-    float offset;
-    public float scrollSpeed = 0.1f;
-
-    void Start()
+    float distance;
+    [Range(0f, 5f)]
+    public float speed = .2f;
+    private void Start()
     {
         mat = GetComponent<Renderer>().material;
     }
-
-    void Update()
+    private void Update()
     {
-        offset += Time.deltaTime * scrollSpeed;
-        mat.mainTextureOffset = new Vector2(offset, 0);
+        distance += Time.deltaTime*speed;
+        mat.SetTextureOffset("_MainTex", Vector2.right * distance);
     }
 }
+
