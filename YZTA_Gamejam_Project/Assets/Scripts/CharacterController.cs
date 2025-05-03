@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float speed = 3f;
+    private bool jump = false;
     private float jumpForce = 5f;
     private int moveDirection;
     private float horizontalInput;
@@ -15,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private float jumpAfterClimbing = 1.2f;
 
     [Header("Ground Check")]
-    public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     private bool ground = true;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
- 
+
         if (ground == true){
             moveDirection = 0;
             animator.SetFloat("speed", 0.0f);
@@ -56,10 +56,16 @@ public class PlayerController : MonoBehaviour
 
         // Jump
         if (Input.GetButtonDown("Jump") && ground && !isClimbing)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        {            
+            jump = true;
+            ground = false;
+        //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetTrigger("jump");
             animator.SetBool("ground", false);
+        }
+        else if (Input.GetButtonDown("Jump") && !ground){
+            ground = false;
+            Debug.Log("zıplama artık");
         }
 
         // Ladder Climbing
@@ -76,7 +82,7 @@ public class PlayerController : MonoBehaviour
         // Animation
         if (animator != null)
         {
-            animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+            animator.SetFloat("speed", Mathf.Abs(horizontalInput));
             animator.SetBool("ground", ground);
             animator.SetFloat("ClimbSpeed", isClimbing ? Mathf.Abs(verticalInput) : 0f);
         }
@@ -86,6 +92,13 @@ public class PlayerController : MonoBehaviour
     {
         // Horizontal movement (done in FixedUpdate for physics consistency)
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+
+        if (jump == true){
+        //    rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+           // _rigidbody2D.AddForce(transform.up * jumpForce);
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0);
+            jump = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other){
