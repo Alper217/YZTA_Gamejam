@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Ground
+  - Shadow
+  - Character
   - Floor
   - Ladder
   layers:
