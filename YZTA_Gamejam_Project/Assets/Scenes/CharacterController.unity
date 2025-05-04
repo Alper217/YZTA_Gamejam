@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPos: {fileID: 143847377}
   shadowPos: {fileID: 1804207368}
+  animator: {fileID: 0}
 --- !u!114 &143847386
 MonoBehaviour:
   m_ObjectHideFlags: 0
