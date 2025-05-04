@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlatformScriptAlper : MonoBehaviour
 {
     [SerializeField] GameObject platform;
-    [SerializeField] TextMeshProUGUI text;
 
     private bool isIn = false;
     private bool isMoving = false;
@@ -19,8 +18,6 @@ public class PlatformScriptAlper : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isIn = true;
-            text.gameObject.SetActive(true);
-            text.text = text.text.ToUpper();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -28,7 +25,7 @@ public class PlatformScriptAlper : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isIn = false;
-            text.gameObject.SetActive(false);
+            //text.gameObject.SetActive(false);
         }
     }
     private void Update()
