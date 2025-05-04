@@ -3,17 +3,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float speed = 3f;
+    [SerializeField] public float speed = 3f;
     private bool jump = false;
-    private float jumpForce = 5f;
+    [SerializeField] private float jumpForce = 5f;
     private int moveDirection;
     private float horizontalInput;
 
     [Header("Ladder Climbing")]
-    public float climbSpeed = 4f;
+    [SerializeField] public float climbSpeed = 4f;
     private float verticalInput;
     public bool isClimbing = false;
-    private float jumpAfterClimbing = 1.2f;
+    [SerializeField] private float jumpAfterClimbing = 1.2f;
 
     [Header("Ground Check")]
     public float groundCheckRadius = 0.2f;
@@ -24,9 +24,18 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     private SpriteRenderer _spriteRenderer;
     public Animator animator;
+    private AudioSource _audio;
+
+    private float footstepTimer;
+    [SerializeField] float footstepDelay = 0.2f;
+
+    private float jumpTimer;
+    [SerializeField] float jumpDelay = 0.2f;
+
 
     void Awake(){
         animator = GetComponent<Animator>();
+        _audio = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -62,10 +71,13 @@ public class PlayerController : MonoBehaviour
         //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetTrigger("jump");
             animator.SetBool("ground", false);
+
+            // Jump sesi
+            PlayJumpSound();
+            //   SFXManager.PlaySound(SoundType.Jump1);         
         }
         else if (Input.GetButtonDown("Jump") && !ground){
             ground = false;
-            Debug.Log("zıplama artık");
         }
 
         // Ladder Climbing
@@ -85,6 +97,16 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("speed", Mathf.Abs(horizontalInput));
             animator.SetBool("ground", ground);
             animator.SetFloat("ClimbSpeed", isClimbing ? Mathf.Abs(verticalInput) : 0f);
+        }
+
+        if (ground && Mathf.Abs(horizontalInput) > 0.1f && !isClimbing)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                PlayFootstepSound();
+                footstepTimer = footstepDelay;
+            }
         }
     }
 
@@ -132,5 +154,20 @@ public class PlayerController : MonoBehaviour
             pos.y += verticalInput > 0 ? jumpAfterClimbing : 0;
             transform.position = pos;
         }
+    }
+
+    void PlayFootstepSound()
+    {
+        int randomIndex = Random.Range(1, 4); // Walk1, Walk2, Walk3
+        SoundType walkSound = (SoundType)System.Enum.Parse(typeof(SoundType), "Walk" + randomIndex);
+        SFXManager.PlaySound(walkSound);
+    }
+
+    void PlayJumpSound()
+    {   
+        Debug.Log("play jump sound");
+        int randomIndex = Random.Range(1, 3); // Jump1, Jump2
+        SoundType jumpSound = (SoundType)System.Enum.Parse(typeof(SoundType), "Jump" + randomIndex);
+        SFXManager.PlaySound(jumpSound);
     }
 }
