@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: f0750faedcc8b1047b25982bc7f7f61a
+<<<<<<<< HEAD:YZTA_Gamejam_Project/Assets/Level Design Packs/Concept Level Design Scene.unity.meta
+guid: 8c9cfa26abfee488c85f1582747f6a02
+========
+guid: 7d1eedaf603c3164991562798a0dc172
+>>>>>>>> Level_Design_Branch:YZTA_Gamejam_Project/Assets/Scenes/Level2.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
