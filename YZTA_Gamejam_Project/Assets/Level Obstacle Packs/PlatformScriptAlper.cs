@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class PlatformScript : MonoBehaviour
+public class PlatformScriptAlper : MonoBehaviour
 {
     [SerializeField] GameObject platform;
     [SerializeField] TextMeshProUGUI text;
