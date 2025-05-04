@@ -116,6 +116,8 @@ public class PlayerController : MonoBehaviour
             isClimbing = true;
             animator.SetBool("isClimbing", true);
         }
+        else
+            return;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
