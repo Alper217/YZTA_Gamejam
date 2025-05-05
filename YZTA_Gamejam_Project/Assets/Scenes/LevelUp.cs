@@ -24,10 +24,13 @@ public class LevelUp : MonoBehaviour
         if (transitionEffect != null)
         {
             transitionEffect.PlayFadeOut();
+            Debug.Log("Fade out started.");
             yield return new WaitForSeconds(transitionDuration*Time.deltaTime);
         }
-
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        Debug.Log("Scene loaded: " + SceneManager.GetActiveScene().buildIndex+1);
+        
         yield return new WaitForSeconds(0.5f); // You can adjust this wait time if necessary
         if (transitionEffect != null)
         {

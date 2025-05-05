@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MenuScript : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject volumeSlider;
     public List<Sprite> volumeIcons = new List<Sprite>();
+    [SerializeField] public LevelTransitionEffect transitionEffect;
     void Start()
     {
         Slider slider = volumeSlider.GetComponent<Slider>();
@@ -22,9 +24,29 @@ public class MenuScript : MonoBehaviour
     }
     public void StartGame()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetSceneByName("GameScene") != null)
+        if (SceneManager.GetSceneByName("prologue") != null)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+            StartCoroutine(LoadPrologue());
+        }
+    }
+
+    private IEnumerator LoadPrologue()
+    {
+        if (transitionEffect != null)
+        {
+            transitionEffect.PlayFadeOut();
+            yield return new WaitForSeconds(2 * Time.deltaTime);
+        }
+
+        SceneManager.LoadScene("prologue");
+        yield return new WaitForSeconds(0.5f); // You can adjust this wait time if necessary
+        if (transitionEffect != null)
+        {
+            transitionEffect.PlayFadeIn();
+        }
+        else
+        {
+            SceneManager.LoadScene("prologue");
         }
     }
     public void OpenCredits()
@@ -93,7 +115,6 @@ public class MenuScript : MonoBehaviour
         {
             volumeSlider.transform.Find("Background").GetComponent<Image>().sprite = volumeIcons[10];
         }
-        Debug.Log("Volume set to: " + volume);
     }
 
     public void QuitGame()

@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Alper_Scene_3.unity
-    guid: 1ca7d160a0caae543bbf6c6c999f5c2b
+    path: Assets/Scenes/MainMenu1.unity
+    guid: e6d8f9803b3cd374f95b4a95b937d1df
   - enabled: 1
-    path: Assets/Scenes/Alper_Scene_2.unity
-    guid: 1195b11930226524a9f7d16e5717cdcf
+    path: Assets/Scenes/Prologue.unity
+    guid: 9af94edcfe6334a4d949409090837b4e
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 4df3647b0ffca9f46bc3372d7acc5761
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 7d1eedaf603c3164991562798a0dc172
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 874a05c47a8936a4288a53613f3d6f35
+  - enabled: 1
+    path: Assets/Scenes/Level4b.unity
+    guid: 53bb8a2294a14cc4b9ef2761b947fc2d
+  - enabled: 1
+    path: Assets/Scenes/Epilogue.unity
+    guid: 36fbe11825ad8ec47b474063438a0cfc
   m_configObjects: {}
