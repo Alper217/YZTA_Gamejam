@@ -15,7 +15,9 @@ public enum SoundType {
     ButtonHover,
     PlatformMove,
     PlatformStop,
-    Door
+    Door,
+    Teleport1,
+    Teleport2
 }
 
 public class SFXManager : MonoBehaviour{

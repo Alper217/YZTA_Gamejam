@@ -10,6 +10,9 @@ public class CharacterTeleport : MonoBehaviour
 
     public Animator animator;
 
+    [Header("Sound")]
+    public AudioSource audioSource;
+
     void Awake(){
         animator = GetComponent<Animator>();
     }
@@ -46,6 +49,8 @@ public class CharacterTeleport : MonoBehaviour
     {
         animator.SetTrigger("teleportOut"); // Trigger the disappearing animation
 
+        PlayTeleportSound();
+
         yield return new WaitForSeconds(0.5f); // Wait for the teleport-out animation to finish (adjust to your animation length)
 
         // Swap positions
@@ -63,5 +68,12 @@ public class CharacterTeleport : MonoBehaviour
 
         // Optional: Clean up
         tempPos = null;
+    }
+
+       void PlayTeleportSound()
+    {   
+        int randomIndex = Random.Range(1, 3); // Teleport1, Teleport2
+        SoundType teleportSound = (SoundType)System.Enum.Parse(typeof(SoundType), "Teleport" + randomIndex);
+        SFXManager.PlaySound(teleportSound);
     }
 }

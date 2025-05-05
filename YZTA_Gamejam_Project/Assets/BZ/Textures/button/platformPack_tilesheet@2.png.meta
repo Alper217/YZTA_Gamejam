@@ -1,0 +1,365 @@
+fileFormatVersion: 2
+guid: cf90336048ca6380c873a765d5b082c4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_70
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41722b3e9210c3f29615bfc3a256cb0
+      internalID: -1645869391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_71
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49af643208841e0d887d587b1d8dfee8
+      internalID: 1512571229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_72
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1096a974ff6104a9b54b9dda93d692
+      internalID: 476335018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_73
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a48dbf8ae73cc01a894d777a764373
+      internalID: -1765273683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_79
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abcd63e5450898c80b153a7fe41f323e
+      internalID: 141614472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_80
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92381b0b88935bc08e70962d9255cad
+      internalID: 918094306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_81
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87138010d2434746805282e1b7a3221
+      internalID: -1510582560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformPack_tilesheet@2_82
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135d41a11614c1744ad28e7b74a09f8b
+      internalID: 1231012079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      platformPack_tilesheet@2_0: -1427931039
+      platformPack_tilesheet@2_1: -563280271
+      platformPack_tilesheet@2_10: 634893655
+      platformPack_tilesheet@2_11: 1095978386
+      platformPack_tilesheet@2_12: 1948935513
+      platformPack_tilesheet@2_13: -403338136
+      platformPack_tilesheet@2_14: -506456768
+      platformPack_tilesheet@2_15: -1109787781
+      platformPack_tilesheet@2_16: -1725813608
+      platformPack_tilesheet@2_17: -2067911082
+      platformPack_tilesheet@2_18: -1361362614
+      platformPack_tilesheet@2_19: -1415981358
+      platformPack_tilesheet@2_2: -2040460608
+      platformPack_tilesheet@2_20: 1488124145
+      platformPack_tilesheet@2_21: 99326458
+      platformPack_tilesheet@2_22: 402771363
+      platformPack_tilesheet@2_23: 1432470693
+      platformPack_tilesheet@2_24: 1620317961
+      platformPack_tilesheet@2_25: -987061515
+      platformPack_tilesheet@2_26: -57762657
+      platformPack_tilesheet@2_27: 1213110704
+      platformPack_tilesheet@2_28: 1829049023
+      platformPack_tilesheet@2_29: -1528998189
+      platformPack_tilesheet@2_3: 381231107
+      platformPack_tilesheet@2_30: -472454294
+      platformPack_tilesheet@2_31: -72038659
+      platformPack_tilesheet@2_32: 1153417071
+      platformPack_tilesheet@2_33: -932795399
+      platformPack_tilesheet@2_34: 1183555049
+      platformPack_tilesheet@2_35: 665076956
+      platformPack_tilesheet@2_36: -617509074
+      platformPack_tilesheet@2_37: 1659954712
+      platformPack_tilesheet@2_38: 1639555280
+      platformPack_tilesheet@2_39: 502698129
+      platformPack_tilesheet@2_4: 1985186539
+      platformPack_tilesheet@2_40: 1296657277
+      platformPack_tilesheet@2_41: 486335109
+      platformPack_tilesheet@2_42: -1512897872
+      platformPack_tilesheet@2_43: 1739912047
+      platformPack_tilesheet@2_44: 1555372264
+      platformPack_tilesheet@2_45: -696761285
+      platformPack_tilesheet@2_46: 163532086
+      platformPack_tilesheet@2_47: -1866882456
+      platformPack_tilesheet@2_48: -1369479089
+      platformPack_tilesheet@2_49: 759637088
+      platformPack_tilesheet@2_5: -1399973110
+      platformPack_tilesheet@2_50: -1772123945
+      platformPack_tilesheet@2_51: -117825003
+      platformPack_tilesheet@2_52: 1892379190
+      platformPack_tilesheet@2_53: -98652790
+      platformPack_tilesheet@2_54: -1226931318
+      platformPack_tilesheet@2_55: 1640271766
+      platformPack_tilesheet@2_56: 1169766935
+      platformPack_tilesheet@2_57: 481092220
+      platformPack_tilesheet@2_58: -391796291
+      platformPack_tilesheet@2_59: 824607145
+      platformPack_tilesheet@2_6: -2109761832
+      platformPack_tilesheet@2_60: -501368920
+      platformPack_tilesheet@2_61: -1291067404
+      platformPack_tilesheet@2_62: -2005443445
+      platformPack_tilesheet@2_63: 705222230
+      platformPack_tilesheet@2_64: 1803991052
+      platformPack_tilesheet@2_65: 527600506
+      platformPack_tilesheet@2_66: -2123081277
+      platformPack_tilesheet@2_67: 1935793649
+      platformPack_tilesheet@2_68: 575627707
+      platformPack_tilesheet@2_69: -835959275
+      platformPack_tilesheet@2_7: 1655872300
+      platformPack_tilesheet@2_70: -1645869391
+      platformPack_tilesheet@2_71: 1512571229
+      platformPack_tilesheet@2_72: 476335018
+      platformPack_tilesheet@2_73: -1765273683
+      platformPack_tilesheet@2_74: 1435552030
+      platformPack_tilesheet@2_75: -1275856842
+      platformPack_tilesheet@2_76: 1230797573
+      platformPack_tilesheet@2_77: 730337454
+      platformPack_tilesheet@2_78: -400109071
+      platformPack_tilesheet@2_79: 141614472
+      platformPack_tilesheet@2_8: -960767797
+      platformPack_tilesheet@2_80: 918094306
+      platformPack_tilesheet@2_81: -1510582560
+      platformPack_tilesheet@2_82: 1231012079
+      platformPack_tilesheet@2_9: 2096063749
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
