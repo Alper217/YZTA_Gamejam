@@ -74,6 +74,7 @@ public class CharacterTeleport : MonoBehaviour
     {   
         int randomIndex = Random.Range(1, 3); // Teleport1, Teleport2
         SoundType teleportSound = (SoundType)System.Enum.Parse(typeof(SoundType), "Teleport" + randomIndex);
+        Debug.Log("Teleport sound: " + teleportSound);
         SFXManager.PlaySound(teleportSound);
     }
 }

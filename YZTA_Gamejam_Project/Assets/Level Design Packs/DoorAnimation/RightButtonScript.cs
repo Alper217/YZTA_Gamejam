@@ -33,6 +33,7 @@ public class RightButtonScript : MonoBehaviour
         
         isIn = false;
         isClicked = false;
+        isOpen = false;
     }
     void OnDisable()
     {
