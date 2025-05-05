@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float climbSpeed = 4f;
     private float verticalInput;
     public bool isClimbing = false;
-    [SerializeField] private float jumpAfterClimbing = 1.2f;
+    [SerializeField] public float jumpAfterClimbing = 0.2f;
 
     [Header("Ground Check")]
     public float groundCheckRadius = 0.2f;
@@ -72,9 +72,8 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("jump");
             animator.SetBool("ground", false);
 
-            // Jump sesi
+            // Jump sound
             PlayJumpSound();
-            //   SFXManager.PlaySound(SoundType.Jump1);         
         }
         else if (Input.GetButtonDown("Jump") && !ground){
             ground = false;
@@ -126,7 +125,6 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.CompareTag("Floor")){
             ground = true;
-            Debug.Log("Floor");
             animator.SetBool("ground", true);
         }
     }
@@ -144,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Ladder"))
         {
             isClimbing = false;
@@ -160,7 +159,6 @@ public class PlayerController : MonoBehaviour
 
     void PlayFootstepSound()
     {
-        Debug.Log("play footstep sound");
         int randomIndex = Random.Range(1, 3); // Walk1, Walk2, Walk3
         SoundType walkSound = (SoundType)System.Enum.Parse(typeof(SoundType), "Walk" + randomIndex);
         SFXManager.PlaySound(walkSound);
@@ -168,7 +166,6 @@ public class PlayerController : MonoBehaviour
 
     void PlayJumpSound()
     {   
-        Debug.Log("play jump sound");
         SFXManager.PlaySound(SoundType.Jump1);
     }
 }

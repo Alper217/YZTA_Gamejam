@@ -156,7 +156,7 @@ MonoBehaviour:
   jumpForce: 5
   climbSpeed: 4
   isClimbing: 0
-  jumpAfterClimbing: 1.2
+  jumpAfterClimbing: 0.2
   groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
