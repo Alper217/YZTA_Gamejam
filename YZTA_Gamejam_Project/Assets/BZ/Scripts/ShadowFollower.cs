@@ -65,6 +65,8 @@ public class ShadowFollower : MonoBehaviour
         shadowSpriteRenderer = GetComponent<SpriteRenderer>();
 
         Debug.Log("shadowAnimator" + shadowAnimator);
+        positionQueue.Clear();
+        animationQueue.Clear();
     }
 
     void Update()
