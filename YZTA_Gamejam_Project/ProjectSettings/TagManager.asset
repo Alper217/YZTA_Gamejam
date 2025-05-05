@@ -7,6 +7,10 @@ TagManager:
   - Floor
   - Shadow
   - Ladder
+  - RedButton
+  - HorizontalPlatform
+  - VerticalPlatform
+  - level4StartDoor
   layers:
   - Default
   - TransparentFX

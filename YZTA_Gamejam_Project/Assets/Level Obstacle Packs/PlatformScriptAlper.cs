@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlatformScriptAlper : MonoBehaviour
 {
     [SerializeField] GameObject platform;
+    [SerializeField] private float platformDelaySec = 1f;
 
     private bool isIn = false;
     private bool isMoving = false;
@@ -32,21 +33,31 @@ public class PlatformScriptAlper : MonoBehaviour
     {
         if (isIn && !isMoving && Input.GetKeyDown(KeyCode.E)&& !stop)
         {
-            targetPosition = platform.transform.position + new Vector3(0, platformDistance, 0);
+            if(platform.CompareTag("HorizontalPlatform"))
+                targetPosition = platform.transform.position + new Vector3(platformDistance, 0, 0);
+
+            else if (platform.CompareTag("VerticalPlatform"))
+                targetPosition = platform.transform.position + new Vector3(0, platformDistance, 0);
             isMoving = true;
         }
         if (isMoving)
         {
-            platform.transform.position = Vector3.MoveTowards(
-                platform.transform.position,
-                targetPosition,
-                moveSpeed * Time.deltaTime
-            );
+            StartCoroutine(platformDelay());
+
             if (Vector3.Distance(platform.transform.position, targetPosition) < 0.01f)
             {
                 isMoving = false;
                 stop = true;
             }
         }
+    }
+    IEnumerator platformDelay()
+    {
+        yield return new WaitForSeconds(platformDelaySec);
+        platform.transform.position = Vector3.MoveTowards(
+                platform.transform.position,
+                targetPosition,
+                moveSpeed * Time.deltaTime
+        );
     }
 }
