@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Shadow
+  - Ladder
   layers:
   - Default
   - TransparentFX
