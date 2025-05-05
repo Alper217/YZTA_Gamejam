@@ -19,6 +19,7 @@ public class PlatformScriptAlper : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isIn = true;
+            SFXManager.PlaySound(SoundType.ButtonHover);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -39,6 +40,8 @@ public class PlatformScriptAlper : MonoBehaviour
             else if (platform.CompareTag("VerticalPlatform"))
                 targetPosition = platform.transform.position + new Vector3(0, platformDistance, 0);
             isMoving = true;
+            SFXManager.PlaySound(SoundType.ButtonClick);
+            
         }
         if (isMoving)
         {
@@ -54,10 +57,14 @@ public class PlatformScriptAlper : MonoBehaviour
     IEnumerator platformDelay()
     {
         yield return new WaitForSeconds(platformDelaySec);
+            SFXManager.PlaySound(SoundType.PlatformMove);
+        
         platform.transform.position = Vector3.MoveTowards(
                 platform.transform.position,
                 targetPosition,
                 moveSpeed * Time.deltaTime
         );
+            SFXManager.PlaySound(SoundType.PlatformStop);
+
     }
 }

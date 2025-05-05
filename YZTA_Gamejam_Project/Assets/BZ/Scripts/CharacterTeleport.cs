@@ -49,7 +49,7 @@ public class CharacterTeleport : MonoBehaviour
     {
         animator.SetTrigger("teleportOut"); // Trigger the disappearing animation
 
-        // PlayTeleportSound();
+        PlayTeleportSound();
 
         yield return new WaitForSeconds(0.2f); // Wait for the teleport-out animation to finish (adjust to your animation length)
 

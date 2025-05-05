@@ -47,27 +47,33 @@ MonoBehaviour:
   oneShotClip: {fileID: 0}
   audioSource: {fileID: 0}
   clips:
-  - soundType: 5
+  - soundType: 3
     clip: {fileID: 8300000, guid: 19b2f1321a55a8f4e833699cb40bdd2b, type: 3}
-    volume: 1
-  - soundType: 6
+    volume: 0.2
+  - soundType: 4
     clip: {fileID: 8300000, guid: b4c6693713adcc64bab18a7e0ee23f37, type: 3}
-    volume: 1
-  - soundType: 9
+    volume: 0.5
+  - soundType: 7
     clip: {fileID: 8300000, guid: 793714065cf487f439b3b25a057d6e63, type: 3}
     volume: 1
-  - soundType: 7
+  - soundType: 5
     clip: {fileID: 8300000, guid: ae24142b7eb566f44bf968359ddbb34a, type: 3}
-    volume: 1
-  - soundType: 8
+    volume: 0.3
+  - soundType: 6
     clip: {fileID: 8300000, guid: 1aac217548b7e024faca3d42e40619ff, type: 3}
-    volume: 1
+    volume: 0.1
   - soundType: 0
     clip: {fileID: 8300000, guid: 08e63f118ca988b44a73d8aefe052620, type: 3}
-    volume: 1
+    volume: 0.2
   - soundType: 1
     clip: {fileID: 8300000, guid: e3c6dfd7dfd5861af8057c68f929ea2a, type: 3}
-    volume: 1
+    volume: 0.2
   - soundType: 2
     clip: {fileID: 8300000, guid: 7560143837933534d899a26d219014b6, type: 3}
+    volume: 0.2
+  - soundType: 8
+    clip: {fileID: 8300000, guid: 872469559b0047fc3a114fa729591c16, type: 3}
+    volume: 1
+  - soundType: 9
+    clip: {fileID: 8300000, guid: c39bc5215f345a0f787fd87744fd1d32, type: 3}
     volume: 1

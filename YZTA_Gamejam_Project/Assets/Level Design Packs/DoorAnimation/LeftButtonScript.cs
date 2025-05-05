@@ -45,7 +45,7 @@ public class LeftButtonScript : MonoBehaviour
         }
     }
     //true = sol 
-    //false = sað
+    //false = saï¿½
     public void OpenDoor(bool selection)
     {
         if (!RightButtonScript.isOpen)
@@ -83,6 +83,8 @@ public class LeftButtonScript : MonoBehaviour
                 rightDoor.GetComponent<Collider2D>().enabled = true;
             }
             RightButtonScript.isOpen = false;
+            SFXManager.PlaySound(SoundType.Door);
+
         }
     }
 }
