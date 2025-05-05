@@ -51,7 +51,7 @@ public class CharacterTeleport : MonoBehaviour
 
         // PlayTeleportSound();
 
-        yield return new WaitForSeconds(0.5f); // Wait for the teleport-out animation to finish (adjust to your animation length)
+        yield return new WaitForSeconds(0.2f); // Wait for the teleport-out animation to finish (adjust to your animation length)
 
         // Swap positions
         tempPos = characterPos;
