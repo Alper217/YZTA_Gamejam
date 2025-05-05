@@ -32,7 +32,24 @@ public class PlayerController : MonoBehaviour
     private float jumpTimer;
     [SerializeField] float jumpDelay = 0.2f;
 
+    private Vector3 initialPos;
 
+
+
+    private void OnDisable()
+    {
+        SceneResetter.Instance.OnScreenReset -= ResetPlayerPosition;
+    }
+
+    private void ResetPlayerPosition()
+    {
+        Debug.Log("Player position reset triggered.");
+        // Reset player position to the initial spawn point
+        transform.position = initialPos; // Replace with your initial spawn point
+        rb.velocity = Vector2.zero; // Reset velocity
+        ground = true; // Reset ground state
+        animator.SetBool("ground", true); // Reset animator state
+    }
     void Awake(){
         animator = GetComponent<Animator>();
         _audio = GetComponent<AudioSource>();
@@ -41,6 +58,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        initialPos = transform.position;
+        SceneResetter.Instance.OnScreenReset += ResetPlayerPosition;
     }
 
     private void Update()

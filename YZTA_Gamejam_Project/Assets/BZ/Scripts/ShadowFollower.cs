@@ -51,7 +51,7 @@ public class ShadowFollower : MonoBehaviour
     private Queue<TransformData> positionQueue => MovementRecorder.recordedPositions;
 
     private bool wasGroundLastFrame = true;
-
+    private Vector3 initPos;
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -65,6 +65,18 @@ public class ShadowFollower : MonoBehaviour
         shadowSpriteRenderer = GetComponent<SpriteRenderer>();
 
         Debug.Log("shadowAnimator" + shadowAnimator);
+        SceneResetter.Instance.OnScreenReset += ResetShadowPosition;
+
+        
+    }
+
+    public void ResetShadowPosition()
+    {
+        // Debug.Log("Shadow position reset triggered.");
+        // // Reset shadow position to the initial spawn point
+        shadowTransform.position = initPos; // Replace with your initial spawn point
+        shadowAnimator.SetBool("ground", true); // Reset animator state
+        shadowAnimator.SetFloat("speed", 0);
         positionQueue.Clear();
         animationQueue.Clear();
     }

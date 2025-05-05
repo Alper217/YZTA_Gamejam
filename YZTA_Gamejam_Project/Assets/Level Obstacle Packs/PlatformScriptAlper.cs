@@ -6,6 +6,7 @@ public class PlatformScriptAlper : MonoBehaviour
 {
     [SerializeField] GameObject platform;
     [SerializeField] private float platformDelaySec = 1f;
+    private Vector3 initPlatformPos;
 
     private bool isIn = false;
     private bool isMoving = false;
@@ -13,6 +14,27 @@ public class PlatformScriptAlper : MonoBehaviour
     private Vector3 targetPosition;
     private float moveSpeed = 2f;
     [SerializeField] float platformDistance = 5;
+
+    void OnDisable()
+    {
+        SceneResetter.Instance.OnScreenReset -= ResetPlatformPosition;
+    }
+
+    void Start()
+    {
+        initPlatformPos = platform.transform.position;
+        SceneResetter.Instance.OnScreenReset += ResetPlatformPosition;
+
+    }
+
+    void ResetPlatformPosition() {
+        Debug.Log("asd1");
+        platform.transform.position = initPlatformPos;
+        isMoving = false;
+        stop = false;
+        isIn = false;
+        StopAllCoroutines();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

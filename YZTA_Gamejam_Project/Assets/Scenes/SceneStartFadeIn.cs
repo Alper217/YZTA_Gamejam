@@ -8,12 +8,13 @@ public class SceneStartFadeIn : MonoBehaviour
     {
         if (transitionEffect != null)
         {
-            Debug.Log("Fade-in çalýþtý!");
+            Debug.Log("Fade-in ï¿½alï¿½ï¿½tï¿½!");
             transitionEffect.PlayFadeIn();
         }
         else
         {
-            Debug.LogWarning("transitionEffect sahnede atanmadý!");
+            Debug.LogWarning("transitionEffect sahnede atanmadï¿½!");
         }
     }
+
 }

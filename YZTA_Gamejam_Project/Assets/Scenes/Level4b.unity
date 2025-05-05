@@ -172,7 +172,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5877ecf6a06e9874bb0042699a3a89e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeed: 0.01
+  target: {fileID: 0}
+  backspeed:
+  - 1.5
+  - 0.7
+  - 0.5
+  - 0.2
+  - 0.05
+  parallaxSpeed: 0.05
 --- !u!212 &15949836
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,57 +4,70 @@ using UnityEngine;
 
 public class Parallax_Controller : MonoBehaviour
 {
-    Transform cam; //Main Camera
-    Vector3 camStartPos;
-    float distance;
+    public Transform target; // Karakter
+    private Vector3 startTargetPos;
+    private float distance;
 
-    GameObject[] backgrounds;
-    Material[] materials;
-    float[] backspeed;
+    private GameObject[] backgrounds;
+    private Material[] materials;
 
-    float farthestBack;
-    [Range(.01f,.05f)]
-    public float parallaxSpeed;
+    [Tooltip("Arka plan katmanlarının hız oranları. Her katman için bir değer girin.")]
+    public float[] backspeed;
+
+    [Range(0.01f, 5f)]
+    public float parallaxSpeed = 0.2f;
 
     private void Start()
     {
-        cam = Camera.main.transform;
-        camStartPos = cam.position;
+        if (target == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+                target = player.transform;
+            else
+                Debug.LogError("Parallax_Controller: Karakter bulunamadı! Tag 'Player' atanmış mı?");
+        }
+
+        startTargetPos = target.position;
 
         int backCount = transform.childCount;
-        materials= new Material[backCount];
-        backspeed = new float[backCount];
+
+        if (backspeed.Length != backCount)
+        {
+            Debug.LogError("Parallax_Controller: backspeed dizisi ile arka plan sayısı uyuşmuyor!");
+            return;
+        }
+
+        materials = new Material[backCount];
         backgrounds = new GameObject[backCount];
 
-        for(int i = 0; i < backCount; i++)
+        for (int i = 0; i < backCount; i++)
         {
             backgrounds[i] = transform.GetChild(i).gameObject;
-            materials[i] = backgrounds[i].GetComponent<Renderer>().material;
-        }
-        BackSpeedCalculate(backCount);
-    }
-    void BackSpeedCalculate(int backCount)
-    {
-        for (int i = 0; i < backCount; i++)
-        {
-            if ((backgrounds[i].transform.position.z - cam.position.z) > farthestBack)
+
+            Renderer renderer = backgrounds[i].GetComponent<Renderer>();
+            if (renderer == null)
             {
-                farthestBack = backgrounds[i].transform.position.z - cam.position.z;
+                Debug.LogError($"Parallax_Controller: {backgrounds[i].name} nesnesinde Renderer yok!");
+                continue;
             }
-        }
-        for (int i = 0; i < backCount; i++)
-        {
-            backspeed[i] = 1 - (backgrounds[i].transform.position.z - cam.position.z) / farthestBack;
+
+            materials[i] = renderer.material;
         }
     }
+
     private void LateUpdate()
     {
-        distance = cam.position.x - camStartPos.x;
-        transform.position = new Vector3(cam.position.x, transform.position.y,0);
-        for (int i = 0;i<backgrounds.Length;i++)
+        if (target == null) return;
+
+        distance = target.position.x - startTargetPos.x;
+
+        for (int i = 0; i < backgrounds.Length; i++)
         {
-            float speed = backspeed[i] *parallaxSpeed;
-            materials[i].SetTextureOffset("_MainTex", new Vector2(distance, 0) * speed);
+            if (materials[i] == null) continue;
+
+            float speed = backspeed[i] * parallaxSpeed;
+            materials[i].SetTextureOffset("_MainTex", new Vector2(distance, 0) * speed / 10f);
         }
     }
 }

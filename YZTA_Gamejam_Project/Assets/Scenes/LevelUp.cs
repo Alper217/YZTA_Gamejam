@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelUp : MonoBehaviour
 {
     [SerializeField] private int nextSceneIndex;
     [SerializeField] private LevelTransitionEffect transitionEffect;
     [SerializeField] private float transitionDuration = 1.5f;
+    [SerializeField] public ShadowFollower shadowFollower;
 
     private bool hasTriggered = false;
 
@@ -27,6 +29,7 @@ public class LevelUp : MonoBehaviour
             Debug.Log("Fade out started.");
             yield return new WaitForSeconds(transitionDuration*Time.deltaTime);
         }
+        shadowFollower.ResetShadowPosition();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         Debug.Log("Scene loaded: " + SceneManager.GetActiveScene().buildIndex+1);
         

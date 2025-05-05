@@ -19,6 +19,25 @@ public class RightButtonScript : MonoBehaviour
         {
             doorAnimator = GetComponent<Animator>();
         }*/
+        SceneResetter.Instance.OnScreenReset += ResetDoorPosition;
+    }
+
+        private void ResetDoorPosition()
+    {
+        Debug.Log("kapama deneme");
+        leftDoor.GetComponent<Animator>().SetTrigger("Close");
+        leftDoor.GetComponent<Collider2D>().enabled = true;
+
+        rightDoor.GetComponent<Animator>().SetTrigger("Open");
+        rightDoor.GetComponent<Collider2D>().enabled = false;
+        
+        isIn = false;
+        isClicked = false;
+    }
+    void OnDisable()
+    {
+        SceneResetter.Instance.OnScreenReset -= ResetDoorPosition;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -46,7 +65,7 @@ public class RightButtonScript : MonoBehaviour
         }
     }
     //true = sol 
-    //false = sað
+    //false = saï¿½
     public void OpenDoor(bool selection)
     {
         if (!isOpen)

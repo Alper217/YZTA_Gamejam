@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class LeftButtonScript : MonoBehaviour
@@ -11,6 +12,7 @@ public class LeftButtonScript : MonoBehaviour
     [SerializeField] private GameObject leftDoor;
     [SerializeField] private GameObject rightDoor;
 
+
     void Start()
     {
         // Ensure the animator is assigned
@@ -18,6 +20,25 @@ public class LeftButtonScript : MonoBehaviour
         {
             doorAnimator = GetComponent<Animator>();
         }*/
+        SceneResetter.Instance.OnScreenReset += ResetDoorPosition;
+    }
+
+    private void ResetDoorPosition()
+    {
+        Debug.Log("kapama deneme");
+        leftDoor.GetComponent<Animator>().SetTrigger("Close");
+        leftDoor.GetComponent<Collider2D>().enabled = true;
+
+        rightDoor.GetComponent<Animator>().SetTrigger("Open");
+        rightDoor.GetComponent<Collider2D>().enabled = false;
+        
+        isIn = false;
+        isClicked = false;
+    }
+    void OnDisable()
+    {
+        SceneResetter.Instance.OnScreenReset -= ResetDoorPosition;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
