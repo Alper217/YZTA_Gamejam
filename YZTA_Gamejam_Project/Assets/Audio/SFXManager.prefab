@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2930804204880104930
 Transform:
   m_ObjectHideFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8769194323195288572}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,4 +46,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oneShotClip: {fileID: 0}
   audioSource: {fileID: 0}
-  clips: []
+  clips:
+  - soundType: 5
+    clip: {fileID: 8300000, guid: 19b2f1321a55a8f4e833699cb40bdd2b, type: 3}
+    volume: 1
+  - soundType: 6
+    clip: {fileID: 8300000, guid: b4c6693713adcc64bab18a7e0ee23f37, type: 3}
+    volume: 1
+  - soundType: 9
+    clip: {fileID: 8300000, guid: 793714065cf487f439b3b25a057d6e63, type: 3}
+    volume: 1
+  - soundType: 7
+    clip: {fileID: 8300000, guid: ae24142b7eb566f44bf968359ddbb34a, type: 3}
+    volume: 1
+  - soundType: 8
+    clip: {fileID: 8300000, guid: 1aac217548b7e024faca3d42e40619ff, type: 3}
+    volume: 1
+  - soundType: 0
+    clip: {fileID: 8300000, guid: 08e63f118ca988b44a73d8aefe052620, type: 3}
+    volume: 1
+  - soundType: 1
+    clip: {fileID: 8300000, guid: e3c6dfd7dfd5861af8057c68f929ea2a, type: 3}
+    volume: 1
+  - soundType: 2
+    clip: {fileID: 8300000, guid: 7560143837933534d899a26d219014b6, type: 3}
+    volume: 1

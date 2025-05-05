@@ -13,7 +13,8 @@ public class ReturnMenu : MonoBehaviour
         elapsedTime += Time.deltaTime;
         if(elapsedTime >= timeToWait)
         {
-            SceneManager.LoadScene("MainMenu1"); // Replace with your main menu scene name
+            SceneManager.LoadScene("MainMenu1");
+            MusicManager.PlayMusic(MusicType.MenuMusic); // Replace with your main menu scene name
         }
     }
 }

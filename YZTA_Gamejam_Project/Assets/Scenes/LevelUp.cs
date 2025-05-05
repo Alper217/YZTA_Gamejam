@@ -27,7 +27,6 @@ public class LevelUp : MonoBehaviour
             Debug.Log("Fade out started.");
             yield return new WaitForSeconds(transitionDuration*Time.deltaTime);
         }
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         Debug.Log("Scene loaded: " + SceneManager.GetActiveScene().buildIndex+1);
         

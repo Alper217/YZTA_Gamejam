@@ -31,6 +31,20 @@ public class MusicManager : MonoBehaviour
     public static void PlayMusic(MusicType musicType, float volume = 1) {
         instance.StartCoroutine(instance.EaseBetween(instance.audioSource, musicType, volume));
     }
+    public static void StopMusic() {
+        instance.StartCoroutine(instance.EaseOut(instance.audioSource));
+    }
+    private IEnumerator EaseOut(AudioSource audioSource) {
+        float elapsedTime = 0f;
+        float initialVolume = audioSource.volume;
+
+        while(audioSource.volume > 0.05f) {
+            audioSource.volume = Mathf.Lerp(initialVolume, 0f, elapsedTime / 1f);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        audioSource.Stop();
+    }
 
     private IEnumerator EaseBetween(AudioSource audioSource, MusicType musicType, float volume) {
         float elapsedTime = 0f;

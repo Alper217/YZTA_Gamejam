@@ -28,6 +28,8 @@ public class MenuScript : MonoBehaviour
         {
             StartCoroutine(LoadPrologue());
         }
+        MusicManager.StopMusic();
+        Debug.Log("Fade out started.");
     }
 
     private IEnumerator LoadPrologue()

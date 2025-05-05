@@ -160,7 +160,8 @@ public class PlayerController : MonoBehaviour
 
     void PlayFootstepSound()
     {
-        int randomIndex = Random.Range(1, 4); // Walk1, Walk2, Walk3
+        Debug.Log("play footstep sound");
+        int randomIndex = Random.Range(1, 3); // Walk1, Walk2, Walk3
         SoundType walkSound = (SoundType)System.Enum.Parse(typeof(SoundType), "Walk" + randomIndex);
         SFXManager.PlaySound(walkSound);
     }
@@ -168,8 +169,6 @@ public class PlayerController : MonoBehaviour
     void PlayJumpSound()
     {   
         Debug.Log("play jump sound");
-        int randomIndex = Random.Range(1, 3); // Jump1, Jump2
-        SoundType jumpSound = (SoundType)System.Enum.Parse(typeof(SoundType), "Jump" + randomIndex);
-        SFXManager.PlaySound(jumpSound);
+        SFXManager.PlaySound(SoundType.Jump1);
     }
 }

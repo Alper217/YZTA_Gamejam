@@ -8,9 +8,7 @@ using Unity.VisualScripting;
 public enum SoundType {
     Walk1,
     Walk2,
-    Walk3,
     Jump1,
-    Jump2,
     ButtonClick,
     ButtonHover,
     PlatformMove,

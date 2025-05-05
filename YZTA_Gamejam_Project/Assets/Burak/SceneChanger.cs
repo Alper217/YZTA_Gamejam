@@ -22,6 +22,7 @@ public class SceneChanger : MonoBehaviour
             // Load the next scene or perform any other action after the cutscene duration
             Debug.Log("Cutscene finished. Loading next scene...");
             // Example: Load the next scene using Unity's SceneManager
+            MusicManager.PlayMusic(MusicType.InGameMusic); // Replace with your main menu scene name
             SceneManager.LoadScene("Level1");
         }
     }
