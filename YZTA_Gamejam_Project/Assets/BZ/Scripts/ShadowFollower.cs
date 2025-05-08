@@ -70,6 +70,14 @@ public class ShadowFollower : MonoBehaviour
         
     }
 
+    void OnDestroy()
+    {
+        if (SceneResetter.Instance != null)
+        {
+            SceneResetter.Instance.OnScreenReset -= ResetShadowPosition;
+        }       
+    }
+
     public void ResetShadowPosition()
     {
         // Debug.Log("Shadow position reset triggered.");
